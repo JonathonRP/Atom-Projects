@@ -151,7 +151,7 @@ class Console(cmd2.Cmd):
                     break
                 else:
                     print(Style.BRIGHT + 'Next file is')
-                    count = count - 1
+                    count  -= 1
         else:
             print(Style.BRIGHT + colored('No files to rename', 'red'))
             sys.exit(self.__init__)
