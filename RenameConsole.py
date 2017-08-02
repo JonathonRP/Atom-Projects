@@ -121,6 +121,8 @@ class Console(cmd2.Cmd):
         else:
             directory = os.listdir()
 
+        count = len(directory)
+
         for f in directory:
             print(colored(f,'cyan','on_magenta'))
             f_name, f_ext = os.path.splitext(f)
@@ -143,10 +145,15 @@ class Console(cmd2.Cmd):
                     print('{}{}'.format(Style.BRIGHT + colored(new_name.strip(),'cyan' ), colored(f_ext.strip(),'magenta')))
                     rename = '{}{}'.format(new_name.strip(), f_ext.strip())
                     self.guard(f, rename)
+
             else:
-                if iter(f) + 1 in directory:
+                if count == 1:
+                    break
+                else:
                     print(Style.BRIGHT + 'Next file is')
+                    count = count - 1
         else:
+            print(Style.BRIGHT + colored('No files to rename', 'red'))
             sys.exit(self.__init__)
 
     def find(self, name, directory = '.'):
