@@ -144,9 +144,10 @@ class Console(cmd2.Cmd):
                     rename = '{}{}'.format(new_name.strip(), f_ext.strip())
                     self.guard(f, rename)
             else:
-                print(Style.BRIGHT + 'Next file is')
-
-        sys.exit(self.__init__)
+                if iter(f) + 1 in directory:
+                    print(Style.BRIGHT + 'Next file is')
+        else:
+            sys.exit(self.__init__)
 
     def find(self, name, directory = '.'):
         for root, dirs, files in os.walk(directory):
