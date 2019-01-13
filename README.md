@@ -20,6 +20,4 @@
                                                         ###                                    /                                  
 ```
 
-Atom Project
-=============
-"# Atom-Projects"
+Projects started in Atom
